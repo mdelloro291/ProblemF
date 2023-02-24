@@ -64,19 +64,34 @@ public class ProblemF {
                     for(int y = 0; y < starVariety; y++){
                         if(starCost[y][0].equals(starRecipe[x][1])){
                             individualCost = Integer.parseInt(starCost[y][1]);
+                            individualCost *= Integer.parseInt(starRecipe[x][2]);
                             int z;
                             for (z = 0; z < starCountNeeded; z++) {
-                                if(calculatedCost[z][0] == star){
+                                if(calculatedCost[z][0].equals(star)){
+                                    //System.out.println("Match found!");
                                     break;
                                 }
-                                else{
-
-                                }
+                                //else{
+                                    
+                                //}
                             }
-                            calculatedCost[z][1] = individualCost * Integer.parseInt(starRecipe[x][2]);
-                            System.out.println(individualCost);
+                            try {
+                                //if(){
+                                if(calculatedCost[z][1] == null){
+                                    calculatedCost[z][1] = String.valueOf(individualCost);
+                                }
+                                else{
+                                    calculatedCost[z][1] = String.valueOf(Integer.parseInt(calculatedCost[z][1]) + individualCost);
+                                }
+                                //}
+                            } catch (Exception e) {
+                                // TODO: handle exception
+                            }
+                            
+                            
+                            //System.out.println(individualCost);
                         }
-                    }   
+                    }
                 }
             }
             
